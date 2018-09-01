@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RouterModule } from '@angular/router';
 import { StartComponent } from './start/start.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuizComponent,
-    StartComponent
+    StartComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

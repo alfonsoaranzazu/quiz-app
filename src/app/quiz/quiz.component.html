@@ -1,1 +1,17 @@
-<h2>Welcome to the quiz</h2>
+<div class="quiz-container">
+  <h2>Welcome to the quiz</h2>
+  <div class="quiz-question-container">
+    <h5>{{currentQuestion.question}}?</h5>
+    <div class="answer-option" *ngFor="let answer of currentQuestion.answers">
+      <div class="answer">
+        <p>{{answer}}</p>
+      </div>
+    </div>
+    <div class="quiz-navigation">
+      <button (click)="onBack()" [disabled]="currentIndex === 0">Back</button>
+      <p *ngIf="currentIndex < quizLength">{{currentIndex+1}} / {{quizLength}}</p>
+      <button (click)="onNext()" *ngIf="currentIndex < quizLength">Next</button>
+      <button (click)="onFinish()" *ngIf="currentIndex === quizLength">Finish</button>
+    </div>
+  </div>
+</div>
