@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScoreService } from '../services/score.service';
 
 @Component({
   selector: 'app-summary',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
+    score: number;
 
-  constructor() { }
+  constructor(public scoreService: ScoreService) { }
 
   ngOnInit() {
+      this.score = this.scoreService.getScore();
   }
 
 }

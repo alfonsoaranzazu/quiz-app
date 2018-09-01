@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ScoreService } from '../services/score.service';
 
 @Component({
     selector: 'app-quiz',
@@ -10,24 +11,36 @@ export class QuizComponent implements OnInit {
     currentQuestion: Question;
     currentIndex: number;
     quizLength: number;
+    score: number;
 
-    constructor(public router: Router) { }
+    constructor(public router: Router, public scoreService: ScoreService) { }
 
     ngOnInit() {
         this.currentQuestion = questions[0];
         this.currentIndex = 0;
+        this.score = 0;
         this.quizLength = questions.length;
     }
 
-    onBack() {
-        this.currentIndex --;
-    }
+    onAnswerSelect(answer: number) {
+        console.log('answer: ', answer);
 
-    onNext() {
-        this.currentIndex ++;
+        if (answer === this.currentQuestion.answerIndex) {
+            this.score++;
+        }
+        
+        this.currentIndex++;
+
+        if (this.currentIndex === this.quizLength) {
+            this.onFinish();
+        } else {
+            this.currentQuestion = questions[this.currentIndex];
+        }
     }
 
     onFinish() {
+        const finalScore = Math.round((this.quizLength / this.score) * 100);
+        this.scoreService.setScore(finalScore);
         this.router.navigate(['/summary']);
     }
 }
@@ -45,5 +58,6 @@ export class Question {
 }
 
 export const questions: Question[] = [
-    new Question('Which of the following represents a multi-line comment in Java', ['# Comment', '// Comment', '/* Comment */', '<!-- Comment >'], 2)
+    new Question('Which of the following represents a multi-line comment in Java', ['# Comment', '// Comment', '/* Comment */', '<!-- Comment >'], 2),
+    new Question('Java will ignore the whitespace in code.', ['True', 'False'], 0)
 ];
