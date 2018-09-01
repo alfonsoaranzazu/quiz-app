@@ -2,7 +2,7 @@
   <h2>Intro to Java Final</h2>
   <p>Note: all answers clicked are final</p>
   <div class="quiz-question-container">
-    <h5>{{currentQuestion.question}}?</h5>
+    <h5>{{currentQuestion.question}}</h5>
     <div class="answer-option" *ngFor="let answer of currentQuestion.answers; let index=index;">
       <mat-card class="answer" (click)="onAnswerSelect(index)">
         <button mat-stroked-button color="primary">{{answer}}</button>
