@@ -59,7 +59,7 @@ export const questions: Question[] = [
     new Question('Which of the following represents a multi-line comment in Java?', ['# Comment', '// Comment', '/* Comment */', '<!-- Comment >'], 2),
     new Question('Java will ignore the whitespace in code', ['True', 'False'], 0),
     new Question('The following expression will evaluate to what value? 5 != 6', ['False', '5', 'True', '6'], 2),
-    new Question('The variable endpoint will store what value? int endpoint = 10 % 3 * 2', ['10', '3', '2', '0'], 2)
+    new Question('The variable endpoint will store what value? int endpoint = 10 % 3 * 2', ['10', '3', '2', '0'], 2),
     new Question('Are there any errors in this line of code? int status = true;', ['Yes, change int to boolean', 'Yes, change int to char', 'Yes, remove the semicolon at the end of the line', 'There are no errors'], 0),
     new Question('What does the following Java code do? System.out.println(8 <= 8);', ['Prints 8', 'Prints false', 'Prints true', 'Prints 0'], 2),
     new Question('', [], 0),
@@ -85,5 +85,5 @@ export const questions: Question[] = [
     new Question('', [], 0),
     new Question('', [], 0),
     new Question('', [], 0),
-    new Question('', [], 0),
+    new Question('', [], 0)
 ];
