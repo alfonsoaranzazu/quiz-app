@@ -3,11 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod"
+  },
+  "engines": {
+    "node": "8.11.0",
+    "npm": "6.1.0"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +28,10 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
+    "express": "^4.16.3",
+    "path": "^0.12.7",
     "rxjs": "^6.0.0",
+    "typescript": "~2.7.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -35,6 +43,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
